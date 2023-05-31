@@ -11,7 +11,7 @@ Hi everyone! We are from C23-PC702. We consist of 6 people and these are our tea
 |Eris Sulistyani|M169DSY1808|Machine Learning|
 |Herjanto Janawisuta|M360DKX4358|Machine Learning|
 |Arinugraha Syam|C177DSX3575|Cloud Computing|
-|Nabila Rachmahi|C172DSY4926|Cloud Computing|
+|Nabila Rachmah|C172DSY4926|Cloud Computing|
 |Mochammad Rizky Ifku Syoba|A047DSX3741|Mobile Development|
 
 ## Theme 🌾
