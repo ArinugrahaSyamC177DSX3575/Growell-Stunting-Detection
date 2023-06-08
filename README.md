@@ -1,4 +1,7 @@
-# Growell-Stunting-Detection
+<div align="center">
+	<img src="https://github.com/ArinugrahaSyamC177DSX3575/Growell-Stunting-Detection/assets/89537572/969f4fab-e39a-4e10-a297-e609abb0aebf" width="256" />
+	<h3 align="center">Growell-Stunting-Detection</h3>
+</div>
 
 ## Introduction 👋
 **Team ID: C23-PC702**
