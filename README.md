@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://github.com/ArinugrahaSyamC177DSX3575/Growell-Stunting-Detection/assets/89537572/969f4fab-e39a-4e10-a297-e609abb0aebf" width="256" />
+	<img src="https://github.com/ArinugrahaSyamC177DSX3575/Growell-Stunting-Detection/assets/89537572/d005327c-1925-4db7-a4fb-fe31abeec5ab" width="256" />
 	<h3 align="center">Growell-Stunting-Detection</h3>
 </div>
 
