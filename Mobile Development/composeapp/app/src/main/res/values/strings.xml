@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">compose-app</string>
+
+
+    <!--FAQ-->
+    <string name="faq_question1">Apa itu Stunting ?</string>
+    <string name="faq_question2">Apa saja dampak stunting ?</string>
+    <string name="faq_question3">Apa yang harus saya lakukan bila saya terdeteksi stunting ?</string>
+    <string name="faq_question4">Bagaimana Ciri-Ciri Stunting ?</string>
+    <string name="faq_question5">Bagaimana penggunaan aplikasi ini ?</string>
+
+    <string name="faq_answer1">Stunting adalah gangguan pertumbuhan dan perkembangan anak akibat kekurangan gizi kronis dan infeksi berulang, yang ditandai dengan panjang atau tinggi badannya di bawah standar yang ditetapkan oleh menteri yang menyelenggarakan urusan pemerintahan di bidang kesehatan.</string>
+    <string name="faq_answer2">Gangguan Pertumbuhan Fisik. Anak yang mengalami stunting akan memiliki tinggi badan yang lebih pendek dibandingkan dengan anak yang sebaya. Hal ini dapat mempengaruhi pertumbuhan fisik mereka secara keseluruhan dan berdampak pada kualitas hidup mereka di kemudian hari.</string>
+    <string name="faq_answer3">Konsultasikan dengan Tenaga Medis. Penting untuk mencari bantuan dari tenaga medis profesional, seperti dokter atau ahli gizi. Mereka dapat melakukan penilaian kesehatan dan gizi secara menyeluruh, memberikan diagnosis yang akurat, serta memberikan rekomendasi dan intervensi yang sesuai.</string>
+    <string name="faq_answer4">
+        - Pertumbuhan melambat. \n
+        - Wajah tampak lebih muda dari anak seusianya. \n
+        - Pertumbuhan gigi terlambat. \n
+        - Performa buruk pada kemampuan fokus dan memori belajarnya. \n
+        - Usia 8-10 tahun anak menjadi lebih pendiam, tidak banyak melakukan kontak mata terhadap orang di sekitarnya \n
+        - Berat badan balita tidak naik bahkan cenderung menurun. \n
+        - Perkembangan tubuh anak terhambat, seperti telat menarche (menstruasi pertama anak perempuan). \n
+        - Anak mudah terserang berbagai penyakit infeksi.
+    </string>
+    <string name="faq_answer5">Gunakan fitur perhitungan dan lengkapi data diri anda untuk mendapatkan hasil</string>
+</resources>
