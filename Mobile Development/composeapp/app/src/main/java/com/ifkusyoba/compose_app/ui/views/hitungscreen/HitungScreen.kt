@@ -1,4 +1,4 @@
-package com.ifkusyoba.compose_app.ui.views
+package com.ifkusyoba.compose_app.ui.views.hitungscreen
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -18,16 +18,18 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.ifkusyoba.compose_app.viewmodel.MainViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ifkusyoba.compose_app.di.Injection
 import com.ifkusyoba.compose_app.ui.components.GenderDropdownCustom
 import com.ifkusyoba.compose_app.ui.components.HitungButtonCustom
 import com.ifkusyoba.compose_app.viewmodel.FieldType
+import com.ifkusyoba.compose_app.viewmodel.HitungViewModel
 import com.ifkusyoba.compose_app.viewmodel.ViewModelFactory
 
 @Composable
-fun ComposeApp(
+fun HitungScreen(
     modifier: Modifier = Modifier,
-    viewModel: MainViewModel = viewModel(factory = ViewModelFactory()),
-) {
+    viewModel: HitungViewModel = viewModel(factory = ViewModelFactory(Injection.provideRepository())),
+){
     val context = LocalContext.current
     Box(
         modifier = modifier
@@ -95,8 +97,8 @@ fun ComposeApp(
 
 @Preview(showBackground = true)
 @Composable
-fun ComposeAppPreview() {
+fun HitungScreenPreview(){
     ComposeAppTheme {
-        ComposeApp()
+        HitungScreen()
     }
 }

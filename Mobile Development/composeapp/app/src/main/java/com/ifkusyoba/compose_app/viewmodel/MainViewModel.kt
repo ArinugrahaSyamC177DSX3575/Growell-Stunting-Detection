@@ -5,48 +5,30 @@ import android.widget.Toast
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.ifkusyoba.compose_app.data.model.Faq
+import com.ifkusyoba.compose_app.data.repository.Repository
+import com.ifkusyoba.compose_app.ui.state.UiState
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
-    private val _nameValue = mutableStateOf("")
-    val nameValue: State<String> = _nameValue
+class MainViewModel(private val repository: Repository) : ViewModel() {
+    private val _uiState: MutableStateFlow<UiState<List<Faq>>> =
+        MutableStateFlow(UiState.Loading)
+    val uiState: MutableStateFlow<UiState<List<Faq>>>
+        get() = _uiState
 
-    private val _heightValue = mutableStateOf("")
-    val heightValue: State<String> = _heightValue
-
-    private val _ageValue = mutableStateOf("")
-    val ageValue: State<String> = _ageValue
-
-    private val _weightValue = mutableStateOf("")
-    val weightValue: State<String> = _weightValue
-
-    fun onTextChange(value: String, fieldType: FieldType) {
-        when (fieldType) {
-            FieldType.NAME -> _nameValue.value = value
-            FieldType.AGE -> _ageValue.value = value
-            FieldType.HEIGHT -> _heightValue.value = value
-            FieldType.WEIGHT -> _weightValue.value = value
+    fun getAllFaq() {
+        viewModelScope.launch {
+            repository.getFaqList()
+                .catch { errorMsg ->
+                    _uiState.value = UiState.Error(errorMsg.message.toString())
+                }
+                .collect { faq ->
+                    _uiState.value = UiState.Success(faq)
+                }
         }
-    }
-
-    fun calculateBMI(height: Int, weight: Int) {
-        val heightInMeters = height / 100.0
-        val bmi = weight / (heightInMeters * heightInMeters)
-        val result = when {
-            bmi < 18 -> "Kekurangan berat badan"
-            bmi < 25 -> "Berat badan ideal"
-            bmi < 30 -> "Kelebihan berat badan"
-            else -> "Obesitas"
-        }
-        Log.d("BMI", "calculateBMI: $height")
-        Log.d("BMI", "calculateBMI: $weight")
-        Log.d("BMI", "calculateBMI: $bmi")
-        Log.d("BMI", "calculateBMI: $result")
     }
 }
 
-enum class FieldType {
-    NAME,
-    HEIGHT,
-    AGE,
-    WEIGHT
-}

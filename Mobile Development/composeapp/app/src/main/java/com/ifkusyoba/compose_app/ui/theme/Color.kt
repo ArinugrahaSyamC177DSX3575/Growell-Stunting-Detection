@@ -1,7 +1,7 @@
 package com.ifkusyoba.compose_app.ui.theme
 import androidx.compose.ui.graphics.Color
 
-val md_theme_light_primary = Color(0xFF246C2D)
+val md_theme_light_primary = Color(0xFF5AB63D)
 val md_theme_light_onPrimary = Color(0xFFFFFFFF)
 val md_theme_light_primaryContainer = Color(0xFFA8F5A5)
 val md_theme_light_onPrimaryContainer = Color(0xFF002105)

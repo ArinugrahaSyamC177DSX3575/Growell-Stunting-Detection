@@ -7,7 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.ifkusyoba.compose_app.navigation.Navigation
 import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
+import com.ifkusyoba.compose_app.ui.views.hitungscreen.HitungScreen
+import com.ifkusyoba.compose_app.ui.views.splashscreen.SplashScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ComposeApp()
+                    Navigation()
                 }
             }
         }
