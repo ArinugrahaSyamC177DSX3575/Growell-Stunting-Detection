@@ -41,7 +41,19 @@ class HitungViewModel: ViewModel() {
         Log.d("BMI", "calculateBMI: $bmi")
         Log.d("BMI", "calculateBMI: $result")
     }
+
+    fun getUserData(name: String, age: Int, height: Int, weight: Int) {
+        _nameValue.value = name
+        _ageValue.value = age.toString()
+        _heightValue.value = height.toString()
+        _weightValue.value = weight.toString()
+        Log.d("User Data", "getUserData: $name")
+        Log.d("User Data", "getUserData: $age")
+        Log.d("User Data", "getUserData: $height")
+        Log.d("User Data", "getUserData: $weight")
+    }
 }
+
 
 enum class FieldType {
     NAME,

@@ -17,10 +17,14 @@ fun Navigation(){
             SplashScreen(navController = navController)
         }
         composable(route = Screen.Dashboard.route){
-            ComposeApp()
+            ComposeApp(
+                navController = navController
+            )
         }
         composable(route = Screen.HitungScreen.route){
-            HitungScreen()
+            HitungScreen(
+                navController = navController
+            )
         }
     }
 }

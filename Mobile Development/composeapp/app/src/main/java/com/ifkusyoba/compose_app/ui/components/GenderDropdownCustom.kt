@@ -30,7 +30,7 @@ fun GenderDropdownCustom() {
             .fillMaxWidth()
             .clickable { expanded = true }
             .clip(RoundedCornerShape(24.dp))
-            .background(MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Text(
             text = selectedGender,
