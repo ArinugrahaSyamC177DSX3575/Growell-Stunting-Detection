@@ -11,6 +11,7 @@ import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
@@ -39,7 +40,7 @@ fun EditTextCustom(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(24.dp)),
-        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = keyboardType),
+        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = keyboardType, imeAction = ImeAction.Next),
         singleLine = true
     )
 }

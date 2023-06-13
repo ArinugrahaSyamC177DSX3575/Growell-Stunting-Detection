@@ -64,7 +64,7 @@ fun ExpandableCardCustom(
                     modifier = Modifier.weight(6f),
                     text = stringResource(id = title),
                     fontWeight = FontWeight.Bold,
-                    fontSize = MaterialTheme.typography.bodyLarge.fontSize,
+                    fontSize = MaterialTheme.typography.bodyMedium.fontSize,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
