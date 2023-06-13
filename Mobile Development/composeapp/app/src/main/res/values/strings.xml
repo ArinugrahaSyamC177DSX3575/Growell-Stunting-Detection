@@ -23,4 +23,19 @@
         - Anak mudah terserang berbagai penyakit infeksi.
     </string>
     <string name="faq_answer5">Gunakan fitur perhitungan dan lengkapi data diri anda untuk mendapatkan hasil</string>
+
+    <!--Card-->
+    <string name="card_title1">SAAT IBU HAMIL</string>
+    <string name="card_title2">SAAT BAYI LAHIR</string>
+    <string name="card_title3">SAAT BAYI BERUSIA 6 BULAN - 2 TAHUN</string>
+    <string name="card_title4">SAAT BALITA</string>
+    <string name="card_title5">PERILAKU HIDUP BERSIH DAN SEHAT</string>
+    <string name="card_title6">SAAT REMAJA</string>
+
+    <string name="card_subtitle1">Memperbaiki gizi dan menjaga kesehatan ibu hamil merupakan cara terbaik dalam mengatasi terjadinya stunting. Pemberian makanan bergizi yang seimbang, konsumsi vitamin dan mineral yang cukup, serta perhatian terhadap pola makan yang baik dapat membantu dalam mencegah terjadinya stunting pada anak.</string>
+    <string name="card_subtitle2">Ketika bayi lahir segera berikan Air Susu Ibu (ASI) saja hingga dengan usia 6 bulan.</string>
+    <string name="card_subtitle3">Pemberian Air Susu Ibu(ASI) terus dilakukan hingga bayi berumur 2 tahun dan diberi makanan pendamping ASI. Serta mengonsumsi vitamin dan imunisasi dasar lengkap.</string>
+    <string name="card_subtitle4">Melakukan pemantauan terhadap pertumbuhan Balita melalui posyandu merupakan upaya yang strategis untuk melakukan deteksi dini terjadinya gangguan pertumbuhan</string>
+    <string name="card_subtitle5">Perilaku Hidup Bersih dan Sehat merupakan upaya menurunkan risiko kejadian sakit terutama penyakit infeksi yang dapat memengaruhi pertumbuhan buah hati.</string>
+    <string name="card_subtitle6">Stunting pada masa remaja akan berpengaruh pada perkembangan psikomotorik, keterampilan motorik halus, dan integrasi neurosensorik. Stunting juga berpengaruh pada tingkat kercedasan pada remaja.</string>
 </resources>

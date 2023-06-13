@@ -13,8 +13,10 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import com.ifkusyoba.compose_app.R
 import com.ifkusyoba.compose_app.navigation.Screen
 import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
 
@@ -35,7 +37,7 @@ fun BottomNavigationBar(
         IconButton(onClick = {
             navController.navigate(Screen.HitungScreen.route)
         }) {
-            Icon(imageVector = Icons.Rounded.DateRange, contentDescription = "Calculate")
+            Icon(painter = painterResource(id = R.drawable.ic_baseline_calculate_24), contentDescription = "Calculate")
         }
     }
 }
