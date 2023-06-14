@@ -21,7 +21,9 @@ import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GenderDropdownCustom() {
+fun GenderDropdownCustom(
+    onGenderSelected: (String) -> Unit,
+) {
     val genderOptions = listOf("Laki-laki", "Perempuan")
     var selectedGender by remember { mutableStateOf(genderOptions[0]) }
     var expanded by remember { mutableStateOf(false) }
@@ -49,9 +51,10 @@ fun GenderDropdownCustom() {
                     onClick = {
                         selectedGender = gender
                         expanded = false
+                        onGenderSelected(gender)
                     },
                     text = {
-                        Text(text = gender)
+                        Text(text = gender, color = Color.Black)
                     }
                 )
             }
@@ -64,6 +67,6 @@ fun GenderDropdownCustom() {
 @Composable
 fun GenderDropdownCustomPreview() {
     ComposeAppTheme {
-        GenderDropdownCustom()
+//        GenderDropdownCustom()
     }
 }

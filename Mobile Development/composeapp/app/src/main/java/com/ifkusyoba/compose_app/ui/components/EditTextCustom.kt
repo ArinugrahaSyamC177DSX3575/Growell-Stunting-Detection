@@ -27,6 +27,7 @@ fun EditTextCustom(
     TextField(
         value = textFieldValue,
         label = { Text(text = label) },
+        textStyle = MaterialTheme.typography.bodyMedium.copy(color = Color.Black),
         onValueChange = {
             textFieldValue = it
             onTextChange(it)

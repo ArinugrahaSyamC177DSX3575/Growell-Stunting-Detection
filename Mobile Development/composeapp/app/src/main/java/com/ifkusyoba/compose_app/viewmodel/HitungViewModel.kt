@@ -9,6 +9,9 @@ class HitungViewModel: ViewModel() {
     private val _nameValue = mutableStateOf("")
     val nameValue: State<String> = _nameValue
 
+    private val _genderValue = mutableStateOf("")
+    val genderValue: State<String> = _genderValue
+
     private val _heightValue = mutableStateOf("")
     val heightValue: State<String> = _heightValue
 
@@ -21,6 +24,7 @@ class HitungViewModel: ViewModel() {
     fun onTextChange(value: String, fieldType: FieldType) {
         when (fieldType) {
             FieldType.NAME -> _nameValue.value = value
+            FieldType.GENDER -> _genderValue.value = value
             FieldType.AGE -> _ageValue.value = value
             FieldType.HEIGHT -> _heightValue.value = value
             FieldType.WEIGHT -> _weightValue.value = value
@@ -42,12 +46,14 @@ class HitungViewModel: ViewModel() {
         Log.d("BMI", "calculateBMI: $result")
     }
 
-    fun getUserData(name: String, age: Int, height: Int, weight: Int) {
+    fun getUserData(name: String, gender: String, age: Int, height: Int, weight: Int) {
         _nameValue.value = name
+        _genderValue.value = gender
         _ageValue.value = age.toString()
         _heightValue.value = height.toString()
         _weightValue.value = weight.toString()
         Log.d("User Data", "getUserData: $name")
+        Log.d("User Data", "getUserData: $gender")
         Log.d("User Data", "getUserData: $age")
         Log.d("User Data", "getUserData: $height")
         Log.d("User Data", "getUserData: $weight")
@@ -57,6 +63,7 @@ class HitungViewModel: ViewModel() {
 
 enum class FieldType {
     NAME,
+    GENDER,
     HEIGHT,
     AGE,
     WEIGHT

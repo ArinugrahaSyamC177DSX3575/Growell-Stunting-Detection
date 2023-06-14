@@ -1,5 +1,6 @@
 package com.ifkusyoba.compose_app.ui.views.hitungscreen
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,6 +20,7 @@ import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
 import com.ifkusyoba.compose_app.ui.components.EditTextCustom
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.core.text.isDigitsOnly
 import com.ifkusyoba.compose_app.viewmodel.MainViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
@@ -36,7 +38,7 @@ fun HitungScreen(
     modifier: Modifier = Modifier,
     viewModel: HitungViewModel = viewModel(factory = ViewModelFactory(Injection.provideRepository())),
     navController: NavController
-){
+) {
     val context = LocalContext.current
     Scaffold(
         modifier = modifier,
@@ -48,7 +50,7 @@ fun HitungScreen(
                 navController = navController
             )
         }
-    ) {innerPadding ->
+    ) { innerPadding ->
         Box(
             modifier = modifier
                 .fillMaxSize()
@@ -74,9 +76,9 @@ fun HitungScreen(
                     onTextChange = { viewModel.onTextChange(it, FieldType.NAME) }
                 )
                 Text(text = "Jenis Kelamin", style = MaterialTheme.typography.bodyLarge)
-                GenderDropdownCustom(
-
-                )
+                GenderDropdownCustom { selectedGender ->
+                    viewModel.onTextChange(selectedGender, FieldType.GENDER)
+                }
                 Text(text = "Usia", style = MaterialTheme.typography.bodyLarge)
                 EditTextCustom(
                     text = viewModel.ageValue.value,
@@ -108,6 +110,13 @@ fun HitungScreen(
                         )
                             .show()
                         return@HitungButtonCustom
+                    } else if (!viewModel.ageValue.value.isDigitsOnly() || !viewModel.heightValue.value.isDigitsOnly() || !viewModel.weightValue.value.isDigitsOnly()) {
+                        Toast.makeText(
+                            context,
+                            "Umur, tinggi badan, dan berat badan harus berupa angka!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@HitungButtonCustom
                     } else {
                         viewModel.calculateBMI(
                             viewModel.heightValue.value.toInt(),
@@ -115,11 +124,13 @@ fun HitungScreen(
                         )
                         viewModel.getUserData(
                             viewModel.nameValue.value,
+                            viewModel.genderValue.value,
                             viewModel.ageValue.value.toInt(),
                             viewModel.heightValue.value.toInt(),
                             viewModel.weightValue.value.toInt()
                         )
-                        Toast.makeText(context, "Data berhasil terkirim!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Data berhasil terkirim!", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 })
             }
@@ -130,7 +141,7 @@ fun HitungScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun HitungScreenPreview(){
+fun HitungScreenPreview() {
     ComposeAppTheme {
 //        HitungScreen()
     }

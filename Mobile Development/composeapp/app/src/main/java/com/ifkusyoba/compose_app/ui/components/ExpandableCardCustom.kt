@@ -77,7 +77,6 @@ fun ExpandableCardCustom(
                     Icon(
                         imageVector = Icons.Filled.ArrowDropDown,
                         contentDescription = "ExpandableCardCustom",
-                        tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
             }
