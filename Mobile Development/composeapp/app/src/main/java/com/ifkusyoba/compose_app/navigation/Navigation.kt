@@ -6,6 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ifkusyoba.compose_app.ui.views.ComposeApp
 import com.ifkusyoba.compose_app.ui.views.hitungscreen.HitungScreen
+import com.ifkusyoba.compose_app.ui.views.resultscreen.HealthyConfirmationScreen
+import com.ifkusyoba.compose_app.ui.views.resultscreen.StuntingConfirmationScreen
 import com.ifkusyoba.compose_app.ui.views.splashscreen.SplashScreen
 
 
@@ -17,10 +19,24 @@ fun Navigation(){
             SplashScreen(navController = navController)
         }
         composable(route = Screen.Dashboard.route){
-            ComposeApp()
+            ComposeApp(
+                navController = navController
+            )
         }
         composable(route = Screen.HitungScreen.route){
-            HitungScreen()
+            HitungScreen(
+                navController = navController
+            )
+        }
+        composable(route = Screen.HealthyScreen.route){
+            HealthyConfirmationScreen(
+                navController = navController
+            )
+        }
+        composable(route = Screen.StuntingScreen.route){
+            StuntingConfirmationScreen(
+                navController = navController
+            )
         }
     }
 }

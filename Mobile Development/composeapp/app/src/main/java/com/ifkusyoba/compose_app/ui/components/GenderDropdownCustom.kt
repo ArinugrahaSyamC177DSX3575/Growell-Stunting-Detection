@@ -21,16 +21,17 @@ import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GenderDropdownCustom() {
+fun GenderDropdownCustom(onGenderSelected: (String) -> Unit) {
     val genderOptions = listOf("Laki-laki", "Perempuan")
-    var selectedGender by remember { mutableStateOf(genderOptions[0]) }
+    val simplifiedGenders = listOf("L", "P")
+    var selectedGender by remember { mutableStateOf(simplifiedGenders[0]) }
     var expanded by remember { mutableStateOf(false) }
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { expanded = true }
             .clip(RoundedCornerShape(24.dp))
-            .background(MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Text(
             text = selectedGender,
@@ -44,14 +45,15 @@ fun GenderDropdownCustom() {
             modifier = Modifier
                 .fillMaxWidth(),
         ) {
-            genderOptions.forEach { gender ->
+            genderOptions.forEachIndexed { index, gender ->
                 DropdownMenuItem(
                     onClick = {
-                        selectedGender = gender
+                        selectedGender = simplifiedGenders[index]
                         expanded = false
+                        onGenderSelected(simplifiedGenders[index])
                     },
                     text = {
-                        Text(text = gender)
+                        Text(text = gender, color = Color.Black)
                     }
                 )
             }
@@ -64,6 +66,6 @@ fun GenderDropdownCustom() {
 @Composable
 fun GenderDropdownCustomPreview() {
     ComposeAppTheme {
-        GenderDropdownCustom()
+//        GenderDropdownCustom()
     }
 }
