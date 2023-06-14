@@ -25,9 +25,11 @@ import com.ifkusyoba.compose_app.viewmodel.MainViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.ifkusyoba.compose_app.di.Injection
+import com.ifkusyoba.compose_app.navigation.Screen
 import com.ifkusyoba.compose_app.ui.components.BottomNavigationBar
 import com.ifkusyoba.compose_app.ui.components.GenderDropdownCustom
 import com.ifkusyoba.compose_app.ui.components.HitungButtonCustom
+import com.ifkusyoba.compose_app.ui.views.resultscreen.HealthyConfirmationScreen
 import com.ifkusyoba.compose_app.viewmodel.FieldType
 import com.ifkusyoba.compose_app.viewmodel.HitungViewModel
 import com.ifkusyoba.compose_app.viewmodel.ViewModelFactory

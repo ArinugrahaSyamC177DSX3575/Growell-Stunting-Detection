@@ -11,6 +11,8 @@ import com.ifkusyoba.compose_app.navigation.Navigation
 import com.ifkusyoba.compose_app.ui.components.CardCarouselCustom
 import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
 import com.ifkusyoba.compose_app.ui.views.hitungscreen.HitungScreen
+import com.ifkusyoba.compose_app.ui.views.resultscreen.HealthyConfirmationScreen
+import com.ifkusyoba.compose_app.ui.views.resultscreen.StuntingConfirmationScreen
 import com.ifkusyoba.compose_app.ui.views.splashscreen.SplashScreen
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +25,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.surface
                 ) {
-//                    CardCarouselCustom()
                     // *Main Navigation
                     Navigation()
                 }

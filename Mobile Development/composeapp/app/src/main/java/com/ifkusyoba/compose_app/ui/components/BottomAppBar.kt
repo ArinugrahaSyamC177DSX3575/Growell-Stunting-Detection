@@ -35,7 +35,7 @@ fun BottomNavigationBar(
                 onClick = {
                     navController.navigate(Screen.Dashboard.route)
                 },
-                modifier = Modifier.padding(horizontal = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp).size(128.dp)
             ) {
                 Icon(
                     imageVector = Icons.Rounded.Home,
@@ -52,7 +52,7 @@ fun BottomNavigationBar(
                 onClick = {
                     navController.navigate(Screen.HitungScreen.route)
                 },
-                modifier = Modifier.padding(horizontal = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp).size(128.dp)
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_baseline_calculate_24),

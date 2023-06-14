@@ -32,7 +32,11 @@ fun SplashScreen(
     LaunchedEffect(key1 = true) {
         delay(3000L)
         splashScreenVisible.value = false
-        navController.navigate(Screen.Dashboard.route)
+        navController.navigate(Screen.Dashboard.route) {
+            popUpTo(Screen.SplashScreen.route) {
+                inclusive = true
+            }
+        }
     }
     AnimatedVisibility(visible = splashScreenVisible.value, enter = fadeIn(), exit = fadeOut()) {
         Box(

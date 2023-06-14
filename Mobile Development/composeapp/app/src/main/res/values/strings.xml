@@ -38,4 +38,14 @@
     <string name="card_subtitle4">Melakukan pemantauan terhadap pertumbuhan Balita melalui posyandu merupakan upaya yang strategis untuk melakukan deteksi dini terjadinya gangguan pertumbuhan</string>
     <string name="card_subtitle5">Perilaku Hidup Bersih dan Sehat merupakan upaya menurunkan risiko kejadian sakit terutama penyakit infeksi yang dapat memengaruhi pertumbuhan buah hati.</string>
     <string name="card_subtitle6">Stunting pada masa remaja akan berpengaruh pada perkembangan psikomotorik, keterampilan motorik halus, dan integrasi neurosensorik. Stunting juga berpengaruh pada tingkat kercedasan pada remaja.</string>
+
+    <!--Healthy Confirmation-->
+    <string name="healthy_confirmation_title">Yay!\nAnda tidak terdeteksi stunting</string>
+    <string name="healthy_confirmation_subtitle">Tetap jaga kesehatan Anda untuk mencegah risiko stunting. Dengan menjaga kesehatan Anda, termasuk asupan gizi yang seimbang, Anda dapat memberikan contoh yang baik dan menciptakan lingkungan yang mendukung pertumbuhan optimal bagi generasi mendatang.</string>
+    <string name="healthy_confirmation_button">Kembali ke Dashboard</string>
+
+    <!--Stunting Confirmation-->
+    <string name="stunting_confirmation_title">Ups!\nAnda terdeteksi stunting</string>
+    <string name="stunting_confirmation_subtitle">Konsultasikan dengan Tenaga Medis. Penting untuk mencari bantuan dari tenaga medis profesional, seperti dokter atau ahli gizi. Mereka dapat melakukan penilaian kesehatan dan gizi secara menyeluruh, memberikan diagnosis yang akurat, serta memberikan rekomendasi dan intervensi yang sesuai.</string>
+    <string name="stunting_confirmation_button">Kembali ke Dashboard</string>
 </resources>
