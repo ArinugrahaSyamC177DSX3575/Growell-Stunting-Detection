@@ -1,14 +1,10 @@
 package com.ifkusyoba.compose_app.ui.views
 
-import android.widget.Space
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -17,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,6 +29,7 @@ import com.ifkusyoba.compose_app.ui.state.UiState
 import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
 import com.ifkusyoba.compose_app.viewmodel.MainViewModel
 import com.ifkusyoba.compose_app.viewmodel.ViewModelFactory
+import com.ifkusyoba.compose_app.R
 
 // *Dashboard
 @Composable
@@ -117,7 +115,7 @@ fun ComposeAppContent(
                 item {
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        text = "Rekomendasi",
+                        text = stringResource(id = R.string.dashboard_recommendation),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold
                     )
@@ -125,7 +123,7 @@ fun ComposeAppContent(
                         modifier = Modifier.padding(bottom = 16.dp)
                     )
                     Text(
-                        text = "FAQ",
+                        text = stringResource(id = R.string.dashboard_faq),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold
                     )
