@@ -118,10 +118,6 @@ fun HitungScreen(
                         ).show()
                         return@HitungButtonCustom
                     } else {
-                        viewModel.calculateBMI(
-                            viewModel.heightValue.value.toInt(),
-                            viewModel.weightValue.value.toInt()
-                        )
                         viewModel.getUserData(
                             viewModel.nameValue.value,
                             viewModel.genderValue.value,
@@ -129,8 +125,14 @@ fun HitungScreen(
                             viewModel.heightValue.value.toInt(),
                             viewModel.weightValue.value.toInt()
                         )
-                        Toast.makeText(context, R.string.hitung_validation_sended, Toast.LENGTH_SHORT)
-                            .show()
+                        viewModel.sendData(
+                            context,
+                            viewModel.nameValue.value,
+                            viewModel.genderValue.value,
+                            viewModel.ageValue.value.toInt(),
+                            viewModel.heightValue.value.toInt(),
+                            viewModel.weightValue.value.toInt()
+                        )
                     }
                 })
             }

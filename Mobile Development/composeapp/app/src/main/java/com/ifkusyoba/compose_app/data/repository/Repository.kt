@@ -4,6 +4,7 @@ import com.ifkusyoba.compose_app.data.local.CardDataSource
 import com.ifkusyoba.compose_app.data.local.FaqDataSource
 import com.ifkusyoba.compose_app.data.model.CardItem
 import com.ifkusyoba.compose_app.data.model.Faq
+import com.ifkusyoba.compose_app.data.remote.ApiService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
@@ -36,7 +37,7 @@ class Repository {
         @Volatile
         private var instance: Repository? = null
 
-        fun getInstance(): Repository =
+        fun getInstance(apiService: ApiService): Repository =
             instance ?: synchronized(this) {
                 instance ?: Repository().apply { instance = this }
             }
