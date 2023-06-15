@@ -4,12 +4,12 @@ const axios = require('axios');
 // API Get All Stuntings entries
 const getAllStuntings = async (req, res) => {
     const query = 'SELECT * FROM stuntings';
-    req.sql.query(query, (err, result) => {
+    sql.query(query, (err, result) => {
       if (err) {
-        console.error('Error retrieving stunting entries: ', err);
-        res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Error retrieving stunting entries:', err);
+        res.status(500).json({ error: true, message: 'Internal Server Error' });
       } else {
-        res.json(result);
+        res.json({ error: false, message: 'success', uploadResult: result });
       }
     });
   };
