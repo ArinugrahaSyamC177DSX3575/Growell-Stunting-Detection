@@ -1,11 +1,16 @@
 package com.ifkusyoba.compose_app.viewmodel
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.ifkusyoba.compose_app.data.remote.ApiConfig
+import kotlinx.coroutines.launch
 
-class HitungViewModel: ViewModel() {
+class HitungViewModel : ViewModel() {
     private val _nameValue = mutableStateOf("")
     val nameValue: State<String> = _nameValue
 
@@ -58,8 +63,30 @@ class HitungViewModel: ViewModel() {
         Log.d("User Data", "getUserData: $height")
         Log.d("User Data", "getUserData: $weight")
     }
-}
 
+    fun sendData(context: Context, name: String, gender: String, age: Int, height: Int, weight: Int) {
+        val selectedGender = if (gender.isEmpty()) "L" else gender
+        viewModelScope.launch {
+            val apiService = ApiConfig.startApiService()
+            val response = apiService.addStunting(name, selectedGender, age, height, weight)
+            if (response.message == "success") {
+                Log.d("Send Data", "sendData: ${response.message}")
+                Toast.makeText(
+                    context,
+                    "Data berhasil dikirim",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Log.d("Send Data", "sendData: ${response.message}")
+                Toast.makeText(
+                    context,
+                    "Data gagal dikirim",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+}
 
 enum class FieldType {
     NAME,
