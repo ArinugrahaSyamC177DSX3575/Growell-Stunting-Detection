@@ -35,7 +35,7 @@ def predict():
         status = 'stunting'
     
     # Melakukan permintaan POST ke API Express untuk menyimpan data ke database
-    url = 'URL_API_EXPRESS_CLOUD_RUN/api/newstuntingentry'
+    url = 'https://growell-express-api-fkegjceqka-et.a.run.app/api/newstuntingentry'
     payload = {
         'name': name,
         'gender': gender,
