@@ -19,7 +19,7 @@ const newStuntingEntry = (req, res) => {
   const { name, gender, age, height, weight } = req.body;
 
   // Melakukan permintaan POST ke API Flask untuk mendapatkan hasil prediksi
-  axios.post('URL_API_FLASK_CLOUD_RUN/api/predict', {
+  axios.post('https://growell-flask-api-fkegjceqka-et.a.run.app/api/predict', {
     name,
     gender,
     age,
