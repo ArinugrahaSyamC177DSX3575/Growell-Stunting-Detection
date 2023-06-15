@@ -1,5 +1,5 @@
 const express = require('express');
-const userStuntings = require('./handlers/stunting');
+const { getAllStuntings, newStuntingEntry, statusStunting } = require('./handlers/stunting');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -16,8 +16,9 @@ app.get('/', (req, res) => {
   res.json(response);
 });
 
-app.get('/api/getallstuntings', userStuntings.getAllStuntings);
-app.post('/api/newstuntingentry', userStuntings.newStuntingEntry);
+app.get('/api/getallstuntings', getAllStuntings);
+app.post('/api/newstuntingentry', newStuntingEntry);
+app.post('/api/statusstunting', statusStunting);
 
 
 app.listen(port, () => {
