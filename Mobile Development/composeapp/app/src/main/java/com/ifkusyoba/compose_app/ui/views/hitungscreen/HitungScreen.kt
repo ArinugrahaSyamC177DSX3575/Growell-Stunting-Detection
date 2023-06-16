@@ -68,37 +68,55 @@ fun HitungScreen(
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(stringResource(id = R.string.hitung_welcome), modifier = Modifier.align(Alignment.CenterHorizontally))
+                Text(
+                    stringResource(id = R.string.hitung_welcome),
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
                 Text(
                     stringResource(id = R.string.hitung_welcome_subtitle),
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                Text(text = stringResource(id = R.string.hitung_name), style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(id = R.string.hitung_name),
+                    style = MaterialTheme.typography.bodyLarge
+                )
                 EditTextCustom(
                     text = viewModel.nameValue.value,
                     label = stringResource(id = R.string.hitung_name_hint),
                     onTextChange = { viewModel.onTextChange(it, FieldType.NAME) }
                 )
-                Text(text = stringResource(id = R.string.hitung_jenis_kelamin), style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(id = R.string.hitung_jenis_kelamin),
+                    style = MaterialTheme.typography.bodyLarge
+                )
                 GenderDropdownCustom { selectedGender ->
                     viewModel.onTextChange(selectedGender, FieldType.GENDER)
                 }
-                Text(text = stringResource(id = R.string.hitung_usia), style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(id = R.string.hitung_usia),
+                    style = MaterialTheme.typography.bodyLarge
+                )
                 EditTextCustom(
                     text = viewModel.ageValue.value,
                     label = stringResource(id = R.string.hitung_usia_hint),
                     onTextChange = { viewModel.onTextChange(it, FieldType.AGE) },
                     keyboardType = KeyboardType.Number
                 )
-                Text(text = stringResource(id = R.string.hitung_tinggi_badan), style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(id = R.string.hitung_tinggi_badan),
+                    style = MaterialTheme.typography.bodyLarge
+                )
                 EditTextCustom(
                     text = viewModel.heightValue.value,
                     label = stringResource(id = R.string.hitung_tinggi_badan_hint),
                     onTextChange = { viewModel.onTextChange(it, FieldType.HEIGHT) },
                     keyboardType = KeyboardType.Number
                 )
-                Text(text = stringResource(id = R.string.hitung_berat_badan), style = MaterialTheme.typography.bodyLarge)
+                Text(
+                    text = stringResource(id = R.string.hitung_berat_badan),
+                    style = MaterialTheme.typography.bodyLarge
+                )
                 EditTextCustom(
                     text = viewModel.weightValue.value,
                     label = stringResource(id = R.string.hitung_berat_badan_hint),
@@ -115,7 +133,10 @@ fun HitungScreen(
                         )
                             .show()
                         return@HitungButtonCustom
-                    } else if (!viewModel.ageValue.value.isDigitsOnly() || !viewModel.heightValue.value.isDigitsOnly() || !viewModel.weightValue.value.isDigitsOnly()) {
+                    } else if (viewModel.ageValue.value.toDoubleOrNull() == null ||
+                        viewModel.heightValue.value.toDoubleOrNull() == null ||
+                        viewModel.weightValue.value.toDoubleOrNull() == null
+                    ) {
                         Toast.makeText(
                             context,
                             R.string.hitung_validation_angka,
