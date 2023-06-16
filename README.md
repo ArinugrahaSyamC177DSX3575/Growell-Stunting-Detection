@@ -19,3 +19,17 @@ Hi everyone! We are from C23-PC702. We consist of 6 people and these are our tea
 
 ## Theme 🌾
 Human Healthcare and Living Wellbeings
+
+## How To Use The App 📱
+### A. Getting Started
+#### Prerequisites
+Android phone with an internet connection
+#### Installation
+Download and Install the [APK](https://github.com/ArinugrahaSyamC177DSX3575/Growell-Stunting-Detection/releases/tag/v1.0.0)
+
+### B. Usage
+#### How to detect stunting
+1. Open the app
+2. Fill in the personal data form
+3. Click "Hitung" button
+4. Voila!
