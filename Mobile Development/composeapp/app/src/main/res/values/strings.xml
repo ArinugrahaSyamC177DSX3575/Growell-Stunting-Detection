@@ -7,18 +7,18 @@
     <string name="dashboard_faq">FAQ</string>
     <!--Hitung Screen-->
     <string name="hitung_welcome">Selamat Datang!</string>
-    <string name="hitung_welcome_subtitle">Silakan masukkan data diri Anda!</string>
+    <string name="hitung_welcome_subtitle">Silakan masukkan data diri anak Anda!</string>
     <string name="hitung_name">Nama</string>
-    <string name="hitung_name_hint">Masukkan nama Anda</string>
+    <string name="hitung_name_hint">Masukkan nama anak Anda</string>
     <string name="hitung_jenis_kelamin">Jenis Kelamin</string>
     <string name="hitung_usia">Usia</string>
-    <string name="hitung_usia_hint">Masukkan usia Anda</string>
+    <string name="hitung_usia_hint">Masukkan usia anak Anda(bulan)</string>
     <string name="hitung_tinggi_badan">Tinggi Badan</string>
-    <string name="hitung_tinggi_badan_hint">Masukkan tinggi badan Anda! (cm)</string>
+    <string name="hitung_tinggi_badan_hint">Masukkan tinggi badan anak Anda! (cm)</string>
     <string name="hitung_berat_badan">Berat Badan</string>
-    <string name="hitung_berat_badan_hint">Masukkan berat badan Anda! (kg)</string>
+    <string name="hitung_berat_badan_hint">Masukkan berat badan anak Anda! (kg)</string>
     <string name="hitung_submit">Hitung</string>
-    <string name="hitung_validation_datadiri">Mohon lengkapi data diri Anda!</string>
+    <string name="hitung_validation_datadiri">Mohon lengkapi data diri anak Anda!</string>
     <string name="hitung_validation_angka">Umur, tinggi badan, dan berat badan harus berupa angka!</string>
     <string name="hitung_validation_sended">Data berhasil terkirim!</string>
 
