@@ -15,9 +15,9 @@ const getAllStuntings = async (req, res) => {
 };
 
 const newStuntingEntry = async (req, res) => {
-  const { name, gender, age, height, weight } = req.body;
+  const { name, gender, age, weight, height } = req.body;
 
-  if (!name || !gender || !age || !height || !weight) {
+  if (!name || !gender || !age || !weight || !height) {
     res.status(400).json({ error: true, message: 'Missing required fields in request body' });
     return;
   }
@@ -26,15 +26,15 @@ const newStuntingEntry = async (req, res) => {
     const statusResponse = await axios.post('https://growell-flask-api-fkegjceqka-et.a.run.app/api/predict', {
       gender,
       age,
-      height,
-      weight
+      weight,
+      height
     });
 
     const { status } = statusResponse.data;
     console.log(status);
 
-    const query = `INSERT INTO stuntings (name, gender, age, height, weight, status) VALUES (?, ?, ?, ?, ?, ?)`;
-    const values = [name, gender, age, height, weight, status];
+    const query = `INSERT INTO stuntings (name, gender, age, weight, height, status) VALUES (?, ?, ?, ?, ?, ?)`;
+    const values = [name, gender, age, weight, height, status];
 
     sql.query(query, values, (err, result) => {
       if (err) {
@@ -46,8 +46,8 @@ const newStuntingEntry = async (req, res) => {
           name,
           gender,
           age,
-          height,
           weight,
+          height,
           status
         };
         res.status(201).json({ error: false, message: 'success', uploadResult: newStuntingEntry });
