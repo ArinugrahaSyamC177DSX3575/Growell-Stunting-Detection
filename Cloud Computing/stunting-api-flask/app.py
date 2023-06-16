@@ -19,8 +19,8 @@ def predict():
         
         gender = data['gender']
         age = data['age']
-        height = data['height']
         weight = data['weight']
+        height = data['height']
 
         if not all([gender, age, height, weight]):
             return jsonify(error='Missing required fields'), 400
@@ -31,9 +31,9 @@ def predict():
         else:
             gender_encoded = np.array([0, 1])
 
-        age_height_weight = np.array([age, height, weight], dtype=float)
+        age_weight_height = np.array([age, weight, height], dtype=float)
 
-        input_data = np.concatenate([gender_encoded, age_height_weight])
+        input_data = np.concatenate([gender_encoded, age_weight_height])
 
         array_reshaped = input_data.reshape(-1, 1)
 
