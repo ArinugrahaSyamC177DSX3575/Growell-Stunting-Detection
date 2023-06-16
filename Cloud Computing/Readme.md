@@ -23,7 +23,7 @@ This is source code API of the GroWell team to make the CRUD(Create, Read, Updat
 [GROWELL API URL EXPRESS](https://growell-express-api-fkegjceqka-et.a.run.app/)
 [GROWELL API URL FLASK](https://growell-flask-api-fkegjceqka-et.a.run.app/)
 <br>
-## <a name="docum"></a>WARAS DOCUMENTATION API
+## <a name="docum"></a>GROWELL DOCUMENTATION API
 ### GroWell Endpoint Documentation
 [GroWell Endpoint Documentation](https://documenter.getpostman.com/view/28030402/2s93shypRg)
 
