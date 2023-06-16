@@ -12,7 +12,7 @@
     <string name="hitung_name_hint">Masukkan nama Anda</string>
     <string name="hitung_jenis_kelamin">Jenis Kelamin</string>
     <string name="hitung_usia">Usia</string>
-    <string name="hitung_usia_hint">Masukkan usia Anda</string>
+    <string name="hitung_usia_hint">Masukkan usia Anda(bulan)</string>
     <string name="hitung_tinggi_badan">Tinggi Badan</string>
     <string name="hitung_tinggi_badan_hint">Masukkan tinggi badan Anda! (cm)</string>
     <string name="hitung_berat_badan">Berat Badan</string>
