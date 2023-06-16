@@ -11,6 +11,7 @@ model = tf.keras.models.load_model('model.h5')
 
 scaler = StandardScaler()
 
+# API predict data stunting
 @app.route('/api/predict', methods=['POST'])
 def predict():
     try:
@@ -24,25 +25,31 @@ def predict():
         if not all([gender, age, height, weight]):
             return jsonify(error='Missing required fields'), 400
         
-        age_height_weight = np.array([age, height, weight], dtype=float)
-        scaler.fit(age_height_weight.reshape(-1, 1))
-        
         # Data Preprocessing
-        gender_encoded = np.where(gender == 'L', [0.0, 1.0], [1.0, 0.0])
-        
-        scaled_age_height_weight = scaler.transform(age_height_weight.reshape(-1, 1)).flatten()
+        if gender == 'L':
+            gender_encoded = np.array([1, 0])
+        else:
+            gender_encoded = np.array([0, 1])
 
-        input_data = np.concatenate([gender_encoded, scaled_age_height_weight])
-        input_data = input_data.reshape(1, -1)
+        age_height_weight = np.array([age, height, weight], dtype=float)
+
+        input_data = np.concatenate([gender_encoded, age_height_weight])
+
+        array_reshaped = input_data.reshape(-1, 1)
+
+        scaled_array = np.copy(input_data)
+        scaled_array[2:] = scaler.fit_transform(array_reshaped[2:]).flatten()
+
+        input_data = scaled_array.reshape(1, -1)
         input_data = tf.convert_to_tensor(input_data, dtype=tf.float32)
 
         # Data Prediction 
         prediction = model.predict(input_data)
 
         if prediction > 0.5:
-            status = 'tidak stunting'
+            status = 'Tidak Stunting'
         else:
-            status = 'stunting'
+            status = 'Stunting'
         
         response = {
             'status': status
