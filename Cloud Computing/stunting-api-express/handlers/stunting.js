@@ -3,18 +3,18 @@ const axios = require('axios');
 
 // API Get All Stuntings entries
 const getAllStuntings = async (req, res) => {
-    const query = 'SELECT * FROM stuntings';
-    sql.query(query, (err, result) => {
-      if (err) {
-        console.error('Error retrieving stunting entries:', err);
-        res.status(500).json({ error: true, message: 'Internal Server Error' });
-      } else {
-        res.json({ error: false, message: 'success', uploadResult: result });
-      }
-    });
-  };
+  const query = 'SELECT * FROM stuntings';
+  sql.query(query, (err, result) => {
+    if (err) {
+      console.error('Error retrieving stunting entries:', err);
+      res.status(500).json({ error: true, message: 'Internal Server Error' });
+    } else {
+      res.json({ error: false, message: 'success', uploadResult: result });
+    }
+  });
+};
 
-const newStuntingEntry = (req, res) => {
+const newStuntingEntry = async (req, res) => {
   const { name, gender, age, height, weight } = req.body;
 
   if (!name || !gender || !age || !height || !weight) {
@@ -22,62 +22,35 @@ const newStuntingEntry = (req, res) => {
     return;
   }
 
-  const query = `INSERT INTO stuntings (name, gender, age, height, weight) VALUES ('${name}','${gender}','${age}','${height}','${weight}')`;
-  const values = [name, gender, age, height, weight];
-
-  sql.query(query, values, (err, result) => {
-    if (err) {
-      console.error('Error adding stunting:', err);
-      res.status(500).json({ error: true, message: 'Internal Server Error' });
-    } else {
-      const newStuntingEntry = {
-          name,
-          gender,
-          age,
-          height,
-          weight
-      };
-      res.status(201).json({ error: false, message: 'success', uploadResult: newStuntingEntry, result });
-    }
-  });
-};
-
-const statusStunting = async (req, res) => {
-  const { name, gender, age, height, weight } = req.body;
-
-  // Perform the prediction based on the newStuntingEntry
   try {
-    const response = await axios.post('https://growell-flask-api-fkegjceqka-et.a.run.app/api/predict', {
-      name,
+    const statusResponse = await axios.post('https://growell-flask-api-fkegjceqka-et.a.run.app/api/predict', {
       gender,
       age,
       height,
       weight
     });
 
-  const status = response.data.status;
+    const { status } = statusResponse.data;
+    console.log(status);
 
-    const query = `UPDATE stuntings SET status = ${status}`;
-    sql.query(query, (err, result) => {
+    const query = `INSERT INTO stuntings (name, gender, age, height, weight, status) VALUES (?, ?, ?, ?, ?, ?)`;
+    const values = [name, gender, age, height, weight, status];
+
+    sql.query(query, values, (err, result) => {
       if (err) {
-        console.error('Error updating status:', err);
+        console.error('Error adding stunting:', err);
         res.status(500).json({ error: true, message: 'Internal Server Error' });
       } else {
-        const newStatusEntry = {
-          id: result.insertid,
+        const newStuntingEntry = {
+          id: result.insertId,
           name,
           gender,
           age,
           height,
-          weight
+          weight,
+          status
         };
-
-        res.status(200).json({
-          error: false,
-          message: 'Success',
-          uploadResult: newStatusEntry,
-          status: status,
-        });
+        res.status(201).json({ error: false, message: 'success', uploadResult: newStuntingEntry });
       }
     });
   } catch (error) {
@@ -88,6 +61,5 @@ const statusStunting = async (req, res) => {
 
 module.exports = {
   getAllStuntings,
-  newStuntingEntry,
-  statusStunting
+  newStuntingEntry
 };

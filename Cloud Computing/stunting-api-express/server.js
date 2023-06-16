@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllStuntings, newStuntingEntry, statusStunting } = require('./handlers/stunting');
+const { getAllStuntings, newStuntingEntry } = require('./handlers/stunting');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -16,12 +16,10 @@ app.get('/', (req, res) => {
   res.json(response);
 });
 
-app.get('/api/getallstuntings', getAllStuntings);
-app.post('/api/newstuntingentry', newStuntingEntry);
-app.post('/api/statusstunting', statusStunting);
+app.get('/api/get-all-stuntings', getAllStuntings);
+app.post('/api/new-stunting-entry', newStuntingEntry);
 
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
