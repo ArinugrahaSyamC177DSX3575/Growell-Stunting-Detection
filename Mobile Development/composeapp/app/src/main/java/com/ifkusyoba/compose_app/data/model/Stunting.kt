@@ -13,4 +13,6 @@ data class Stunting(
     val height: String,
     @field:SerializedName("weight")
     val weight: String,
+    @field:SerializedName("status")
+    val status: String,
 )
