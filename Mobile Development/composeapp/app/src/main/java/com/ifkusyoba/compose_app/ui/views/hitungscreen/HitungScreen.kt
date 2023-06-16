@@ -11,6 +11,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -22,15 +25,14 @@ import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.ifkusyoba.compose_app.di.Injection
-import com.ifkusyoba.compose_app.ui.components.BottomNavigationBar
-import com.ifkusyoba.compose_app.ui.components.EditTextCustom
-import com.ifkusyoba.compose_app.ui.components.GenderDropdownCustom
-import com.ifkusyoba.compose_app.ui.components.HitungButtonCustom
 import com.ifkusyoba.compose_app.ui.theme.ComposeAppTheme
 import com.ifkusyoba.compose_app.viewmodel.FieldType
 import com.ifkusyoba.compose_app.viewmodel.HitungViewModel
 import com.ifkusyoba.compose_app.viewmodel.ViewModelFactory
 import com.ifkusyoba.compose_app.R
+import com.ifkusyoba.compose_app.navigation.Screen
+import com.ifkusyoba.compose_app.ui.components.*
+import com.ifkusyoba.compose_app.viewmodel.StuntingStatus
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,6 +42,9 @@ fun HitungScreen(
     navController: NavController
 ) {
     val context = LocalContext.current
+    val stuntingStatus = viewModel.stuntingStatus.value
+    val loadingState = viewModel.loadingState.value
+
     Scaffold(
         modifier = modifier,
         bottomBar = {
@@ -121,20 +126,32 @@ fun HitungScreen(
                         viewModel.getUserData(
                             viewModel.nameValue.value,
                             viewModel.genderValue.value,
-                            viewModel.ageValue.value.toInt(),
-                            viewModel.heightValue.value.toInt(),
-                            viewModel.weightValue.value.toInt()
+                            viewModel.ageValue.value.toDouble(),
+                            viewModel.heightValue.value.toDouble(),
+                            viewModel.weightValue.value.toDouble()
                         )
                         viewModel.sendData(
                             context,
                             viewModel.nameValue.value,
                             viewModel.genderValue.value,
-                            viewModel.ageValue.value.toInt(),
-                            viewModel.heightValue.value.toInt(),
-                            viewModel.weightValue.value.toInt()
+                            viewModel.ageValue.value.toDouble(),
+                            viewModel.heightValue.value.toDouble(),
+                            viewModel.weightValue.value.toDouble()
                         )
                     }
                 })
+            }
+            if (loadingState) {
+                LoadingCustom()
+            }
+        }
+    }
+    LaunchedEffect(stuntingStatus) {
+        when (stuntingStatus) {
+            StuntingStatus.TIDAK_STUNTING -> navController.navigate(Screen.HealthyScreen.route)
+            StuntingStatus.STUNTING -> navController.navigate(Screen.StuntingScreen.route)
+            else -> {
+                // *Nothing
             }
         }
     }

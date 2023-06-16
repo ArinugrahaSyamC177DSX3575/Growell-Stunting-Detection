@@ -6,13 +6,13 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface ApiService {
-    @POST("api/newstuntingentry")
+    @POST("api/new-stunting-entry")
     @FormUrlEncoded
     suspend fun addStunting(
         @Field("name") nama: String,
         @Field("gender") gender: String,
-        @Field("age") age: Int,
-        @Field("height") height: Int,
-        @Field("weight") weight: Int,
+        @Field("age") age: Double,
+        @Field("height") height: Double,
+        @Field("weight") weight: Double,
     ): AddStunting
 }
